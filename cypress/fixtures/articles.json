@@ -1,0 +1,56 @@
+{
+    "articles": [
+        {
+            "slug": "automated-article-y436e6",
+            "title": "Automated Article 1",
+            "description": "This article is about automation",
+            "body": "Body of the article",
+            "createdAt": "2021-11-17T22:49:48.745Z",
+            "updatedAt": "2021-11-17T22:49:48.745Z",
+            "tagList": [],
+            "favorited": false,
+            "favoritesCount": 3,
+            "author": {
+                "username": "test",
+                "bio": null,
+                "image": "https://static.productionready.io/images/smiley-cyrus.jpg",
+                "following": false
+            }
+        },
+        {
+            "slug": "automated-article-ldfkg6",
+            "title": "Automated Article 2",
+            "description": "This article is about automation too",
+            "body": "Body of the article",
+            "createdAt": "2021-11-16T22:47:47.841Z",
+            "updatedAt": "2021-11-16T22:47:47.841Z",
+            "tagList": [],
+            "favorited": false,
+            "favoritesCount": 2,
+            "author": {
+                "username": "test",
+                "bio": null,
+                "image": "https://static.productionready.io/images/smiley-cyrus.jpg",
+                "following": false
+            }
+        },
+        {
+            "slug": "automated-article-qdwteo",
+            "title": "Automated Article 3",
+            "description": "This article is about automation... again",
+            "body": "Body of the article",
+            "createdAt": "2021-11-16T22:46:30.358Z",
+            "updatedAt": "2021-11-16T22:46:30.358Z",
+            "tagList": [],
+            "favorited": false,
+            "favoritesCount": 0,
+            "author": {
+                "username": "test",
+                "bio": null,
+                "image": "https://static.productionready.io/images/smiley-cyrus.jpg",
+                "following": false
+            }
+        }
+    ],
+    "articlesCount": 16
+}

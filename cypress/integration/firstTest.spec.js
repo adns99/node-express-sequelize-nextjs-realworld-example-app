@@ -37,12 +37,40 @@ describe('Test with Backend', () => {
 
     })
 
-    it('Mock tags api', () => {
+    it.skip('Mock tags api', () => {
         cy.get('.tag-list')
         .should('contain', 'cypress')
         .and('contain', 'automation')
         .and('contain', 'testing')
         
+    })
+
+    it('Verify globa feed likes count', () => {
+        cy.intercept('GET', '**/articles/feed*', '{"articles":[],"articlesCount":0}')
+        cy.intercept('GET', '**/articles?limit=10&offset=0', {
+            fixture:'articles.json'
+        })
+
+        cy.contains('Global Feed').click()
+        cy.get('.article-preview button').then( listOfButtons => {
+            expect(listOfButtons[0]).to.contain('3')
+            expect(listOfButtons[1]).to.contain('2')
+            expect(listOfButtons[2]).to.contain('0')
+        })
+
+        cy.fixture('articles').then( file => {
+            const articleLink = file.articles[0].slug
+            cy.intercept('POST', '**/articles/' + articleLink + '/favorite', file)
+        })
+
+        cy.get('.article-preview button')
+        .eq(0)
+        .click()
+        .should('contain', '4')
+
+
+
+
     })
 
 })
