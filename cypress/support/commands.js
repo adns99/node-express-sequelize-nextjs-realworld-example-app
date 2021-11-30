@@ -25,6 +25,27 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 Cypress.Commands.add('loginToApplication', () => {
+
+    // Headless Authorization Method
+
+    let userCredentials = {
+        "user": {
+            "email": "test@test.com",
+            "password": "Testing12345"
+        }
+    }
+
+    cy.request('POST', 'http://localhost:3000/api/users/login', userCredentials)
+        .its('body').then(body => {
+            const token = body.user.token 
+
+            cy.visit('/', {
+                onBeforeLoad(win) {
+                    win.localStorage.setItem('user', token)
+                }
+            })
+        })
+
     cy.visit('/user/login')
     cy.get('[placeholder="Email"]').type('test@test.com')
     cy.get('[placeholder="Password"]').type('Testing12345')
